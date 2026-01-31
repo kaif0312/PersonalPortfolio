@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ibrahim Kaif - Portfolio Website
 
-## Getting Started
+A stunning, modern portfolio website showcasing my work as an AI Researcher and Engineer. Built with cutting-edge technologies and featuring interactive 3D elements.
 
-First, run the development server:
+## 🚀 Features
+
+- **3D Interactive Elements**: Neural network visualization, 3D timeline, and particle effects using Three.js
+- **Terminal Interface**: Interactive terminal component with typing animations
+- **Responsive Design**: Fully responsive across all devices
+- **Dark Mode**: Smooth dark mode toggle with transitions
+- **Sections**:
+  - Hero section with 3D neural network background
+  - About section with animated skill bars
+  - Interactive 3D timeline for achievements
+  - Resume showcase with downloadable PDF
+  - Project showcase with detailed cards
+  - Blog section (ready for MDX integration)
+  - Contact form with social links
+  - Achievement counters with animations
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **3D Graphics**: Three.js, React Three Fiber, Drei
+- **Animations**: Framer Motion
+- **Icons**: Lucide React, React Icons
+
+## 📦 Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Update Personal Information
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Hero Section**: Edit `components/sections/Hero.tsx`
+2. **About Section**: Edit `components/sections/About.tsx`
+3. **Resume**: Replace `public/Research_CV_Draft.pdf` with your resume
+4. **Projects**: Update `components/sections/Projects.tsx`
+5. **Social Links**: Update links in `components/sections/Hero.tsx` and `components/sections/Contact.tsx`
 
-## Learn More
+### Colors
 
-To learn more about Next.js, take a look at the following resources:
+The color scheme uses:
+- Primary: `#00ff88` (Green)
+- Secondary: `#00d9ff` (Cyan)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Update these in `app/globals.css` to match your brand.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 Blog Setup
 
-## Deploy on Vercel
+The blog section is ready for MDX integration. To add blog posts:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create a `content/blog/` directory
+2. Add MDX files for each post
+3. Update `components/sections/Blog.tsx` to fetch from your content source
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚢 Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import the repository to Vercel
+3. Deploy automatically
+
+### Other Platforms
+
+The site can be deployed to any platform that supports Next.js:
+- Netlify
+- AWS Amplify
+- Cloudflare Pages
+- Self-hosted
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🙏 Acknowledgments
+
+- Three.js for amazing 3D graphics
+- Framer Motion for smooth animations
+- Next.js team for the excellent framework
+
+---
+
+Built with ❤️ by Ibrahim Kaif
