@@ -61,7 +61,7 @@ export default function Resume() {
     // In a real app, this would download the PDF
     setTimeout(() => {
       setIsLoading(false);
-      window.open('/CVwithwebsite.pdf', '_blank');
+      window.open('/CVkoreanaalto.pdf', '_blank');
     }, 500);
   };
 
@@ -93,7 +93,7 @@ export default function Resume() {
               {isLoading ? 'Loading...' : 'Download PDF'}
             </motion.button>
             <motion.a
-              href="/CVwithwebsite.pdf"
+              href="/CVkoreanaalto.pdf"
               target="_blank"
               className="px-6 py-3 glass border border-[#00ff88]/50 text-[#00ff88] font-semibold rounded-lg hover:bg-[#00ff88]/10 transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
               whileHover={{ scale: 1.05 }}
