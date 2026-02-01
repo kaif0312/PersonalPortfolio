@@ -46,14 +46,6 @@ export default function Resume() {
         ],
       },
     ],
-    publications: [
-      {
-        title: 'LOID: Lane Occlusion Inpainting and Detection for Enhanced Autonomous Driving',
-        venue: 'MVA 2025',
-        authors: 'Agrawal, A., Sivakumar, A. J., Kaif, I., Banerjee, C.',
-        doi: '10.1007/s00138-025-01744-2',
-      },
-    ],
   };
 
   const handleDownload = () => {
@@ -152,26 +144,6 @@ export default function Resume() {
                       <li key={i}>{highlight}</li>
                     ))}
                   </ul>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Publications */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="glass rounded-lg p-8"
-          >
-            <h3 className="text-2xl font-bold mb-6 gradient-text">Publications</h3>
-            <div className="space-y-4">
-              {resumeData.publications.map((pub, index) => (
-                <div key={index} className="border-l-2 border-[#00ff88] pl-6">
-                  <h4 className="text-lg font-semibold text-white mb-2">{pub.title}</h4>
-                  <p className="text-[#00ff88] mb-1">{pub.venue}</p>
-                  <p className="text-gray-400 text-sm mb-1">{pub.authors}</p>
-                  <p className="text-gray-500 text-xs">DOI: {pub.doi}</p>
                 </div>
               ))}
             </div>
