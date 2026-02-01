@@ -49,8 +49,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-gray-400 text-base sm:text-lg max-w-xl"
             >
-              Building foundation models for single-cell genomics at POSTECH. 
-              Former IGVC 2023 Champion.
+              Building foundation models for single-cell genomics at POSTECH.
             </motion.p>
 
             {/* Social Links */}
