@@ -28585,6 +28585,409 @@ _**Agent (model default, mode Agent)**_
 ---
 
 
+Here’s what happens and your options:
+
+## Railway free tier
+
+Railway offers $5/month in free credit (not a 30-day trial). Ghost typically uses $3–4/month, so it fits within the free tier.
+
+## If you exceed the free credit
+
+### Option 1: Pay for Railway (cheapest)
+- Cost: ~$5–10/month
+- Keep everything as-is
+- No migration needed
+
+### Option 2: Export your data and migrate
+
+You can export all your Ghost data:
+
+1. Export from Ghost:
+   - Ghost admin → Settings → Labs
+   - Click "Export your content"
+   - Download JSON file (includes all posts, settings, etc.)
+
+2. Migrate to another free option:
+   - Render (free tier)
+   - Fly.io (free tier)
+   - Self-hosted (if you have a server)
+
+3. Or upgrade to Ghost Pro:
+   - $9/month managed hosting
+   - Includes backups, updates, support
+
+## Backup strategy
+
+Set up regular backups:
+
+1. Manual export:
+   - Export content monthly from Ghost admin
+   - Save the JSON file locally or in cloud storage
+
+2. Automated backup (if you upgrade):
+   - Ghost Pro includes automatic backups
+   - Or set up Railway backups if you pay
+
+## Free alternatives if Railway ends
+
+### Option 1: Render (free tier)
+- Free tier available
+- Can migrate Ghost there
+- Sleeps after inactivity (takes time to wake)
+
+### Option 2: Fly.io (free tier)
+- Free tier available
+- Good performance
+- Some resource limits
+
+### Option 3: Ghost Pro ($9/month)
+- Managed hosting
+- Automatic backups
+- No setup needed
+- Most reliable option
+
+## Recommendation
+
+1. Short term: Use Railway free tier ($5 credit/month)
+   - Should cover Ghost usage
+   - Monitor usage in Railway dashboard
+
+2. Long term: Consider Ghost Pro ($9/month)
+   - Most reliable
+   - Includes backups
+   - No maintenance needed
+   - Worth the small cost
+
+3. Always: Export your content regularly
+   - Monthly exports from Ghost admin
+   - Keep backups of your posts
+
+## Quick action
+
+Export your content now (even if you have no posts yet):
+1. Go to Ghost admin: `https://kaifuten-ghost-blog-production.up.railway.app/ghost`
+2. Settings → Labs
+3. Click "Export your content"
+4. Save the JSON file as a backup
+
+## Summary
+
+- Railway free tier: $5/month credit (should be enough)
+- If it ends: Export data, migrate to another service
+- Best long-term: Ghost Pro ($9/month) or keep Railway ($5–10/month)
+- Always: Export content regularly for backups
+
+Your data is safe—you can always export and migrate if needed.
+
+---
+
+_**User (2026-02-09 16:31Z)**_
+
+04:14:49.058 > Build error occurred
+04:14:49.060 Error: Turbopack build failed with 5 errors:
+04:14:49.061 Module not found: Can't resolve '@/lib/posts'
+04:14:49.061 [0m [90m 1 |[39m [36mimport[39m { notFound } [36mfrom[39m [32m'next/navigation'[39m[33m;[39m
+04:14:49.061 [31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { getPostBySlug[33m,[39m getAllPostSlugs } [36mfrom[39m [32m'@/lib/posts'[39m[33m;[39m
+04:14:49.062  [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+04:14:49.063  [90m 3 |[39m [36mimport[39m { [33mMDXRemote[39m } [36mfrom[39m [32m'next-mdx-remote/rsc'[39m[33m;[39m
+04:14:49.063  [90m 4 |[39m [36mimport[39m [33mImage[39m [36mfrom[39m [32m'next/image'[39m[33m;[39m
+04:14:49.063  [90m 5 |[39m [36mimport[39m { [33mCalendar[39m[33m,[39m [33mClock[39m[33m,[39m [33mArrowLeft[39m } [36mfrom[39m [32m'lucide-react'[39m[33m;[39m[0m
+04:14:49.065 Module not found: Can't resolve '@/lib/posts'
+04:14:49.065 [0m[31m[1m>[22m[39m[90m 1 |[39m [36mimport[39m { getAllPosts } [36mfrom[39m [32m'@/lib/posts'[39m[33m;[39m
+04:14:49.065  [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+04:14:49.066  [90m 2 |[39m [36mimport[39m [33mBlog[39m [36mfrom[39m [32m'@/components/sections/Blog'[39m[33m;[39m
+04:14:49.066  [90m 3 |[39m
+04:14:49.067  [90m 4 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mBlogPage[39m() {[0m
+04:14:49.068 Module not found: Can't resolve 'rehype-autolink-headings'
+04:14:49.068 [0m [90m  8 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m'rehype-highlight'[39m[33m;[39m
+04:14:49.068  [90m  9 |[39m [36mimport[39m rehypeSlug [36mfrom[39m [32m'rehype-slug'[39m[33m;[39m
+04:14:49.069 [31m[1m>[22m[39m[90m 10 |[39m [36mimport[39m rehypeAutolinkHeadings [36mfrom[39m [32m'rehype-autolink-headings'[39m[33m;[39m
+04:14:49.069  [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+04:14:49.070  [90m 11 |[39m [36mimport[39m [33mComments[39m [36mfrom[39m [32m'@/components/blog/Comments'[39m[33m;[39m
+04:14:49.070  [90m 12 |[39m
+04:14:49.070  [90m 13 |[39m [36minterface[39m [33mBlogPostPageProps[39m {[0m
+04:14:49.071 Module not found: Can't resolve 'rehype-highlight'
+04:14:49.071 [0m [90m  6 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m'next/link'[39m[33m;[39m
+04:14:49.072  [90m  7 |[39m [36mimport[39m { serialize } [36mfrom[39m [32m'next-mdx-remote/serialize'[39m[33m;[39m
+04:14:49.077 [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m'rehype-highlight'[39m[33m;[39m
+04:14:49.077  [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+04:14:49.078  [90m  9 |[39m [36mimport[39m rehypeSlug [36mfrom[39m [32m'rehype-slug'[39m[33m;[39m
+04:14:49.078  [90m 10 |[39m [36mimport[39m rehypeAutolinkHeadings [36mfrom[39m [32m'rehype-autolink-headings'[39m[33m;[39m
+04:14:49.078  [90m 11 |[39m [36mimport[39m [33mComments[39m [36mfrom[39m [32m'@/components/blog/Comments'[39m[33m;[39m[0m
+04:14:49.080 Module not found: Can't resolve 'rehype-slug'
+04:14:49.080 [0m [90m  7 |[39m [36mimport[39m { serialize } [36mfrom[39m [32m'next-mdx-remote/serialize'[39m[33m;[39m
+04:14:49.080  [90m  8 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m'rehype-highlight'[39m[33m;[39m
+04:14:49.080 [31m[1m>[22m[39m[90m  9 |[39m [36mimport[39m rehypeSlug [36mfrom[39m [32m'rehype-slug'[39m[33m;[39m
+04:14:49.080  [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+04:14:49.081  [90m 10 |[39m [36mimport[39m rehypeAutolinkHeadings [36mfrom[39m [32m'rehype-autolink-headings'[39m[33m;[39m
+04:14:49.081  [90m 11 |[39m [36mimport[39m [33mComments[39m [36mfrom[39m [32m'@/components/blog/Comments'[39m[33m;[39m
+04:14:49.081  [90m 12 |[39m[0m
+04:14:49.133 Error: Command "npm run build" exited with 1
+
+---
+
+_**Agent (model default, mode Agent)**_
+
+
+
+---
+
+
+Fixing build errors: removing old `@/lib/posts` references and unused MDX/rehype imports.
+
+
+---
+
+<tool-use data-tool-type="search" data-tool-name="grep">
+<details>
+<summary>Tool use: **grep** • Grep for "from '@/lib/posts'|@/lib/posts" in "/home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd" • 2 matches</summary>
+
+Output mode: content
+
+
+| File | Content | Line |
+|------|------|------|
+| `/home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd/app/api/posts/route.ts` | `import \{ getAllPosts, createPost \} from '@/lib/posts';` | L3 |
+| `/home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd/app/api/posts/[id]/route.ts` | `import \{ getPostBySlug, updatePost, deletePost \} from '@/lib/posts';` | L3 |
+
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd/app/blog/[slug]/page.tsx</summary>
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="search" data-tool-name="grep">
+<details>
+<summary>Tool use: **grep** • Grep for "MDXRemote|rehype|next-mdx" in "/home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd/app/blog" • 0 matches</summary>
+
+Output mode: content
+
+
+_No matches found_
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd/components/admin/AdminDashboard.tsx</summary>
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+
+Fixing build errors: removing old API routes and checking for leftover references:
+
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd/app/api/posts/route.ts</summary>
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd/app/api/posts/[id]/route.ts</summary>
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && find app -name "*.tsx" -o -name "*.ts" | xargs grep -l "@/lib/posts" 2>/dev/null</summary>
+
+```bash
+cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && find app -name "*.tsx" -o -name "*.ts" | xargs grep -l "@/lib/posts" 2>/dev/null
+```
+
+```
+app/api/posts/route.ts
+app/api/posts/[id]/route.ts
+
+```
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && rm -rf app/api/posts 2>/dev/null && echo "✅ Removed old posts API routes"</summary>
+
+```bash
+cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && rm -rf app/api/posts 2>/dev/null && echo "✅ Removed old posts API routes"
+```
+
+```
+✅ Removed old posts API routes
+
+```
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="search" data-tool-name="grep">
+<details>
+<summary>Tool use: **grep** • Grep for "MDXRemote|rehype|next-mdx-remote" in "/home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd/app" • 0 matches</summary>
+
+Output mode: content
+
+
+_No matches found_
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd/package.json</summary>
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+
+Checking for other issues and verifying the blog post page:
+
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && cat app/blog/[slug]/page.tsx | head -15</summary>
+
+```bash
+cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && cat app/blog/[slug]/page.tsx | head -15
+```
+
+```
+import { notFound } from 'next/navigation';
+import { getPostBySlug, getAllPostSlugs } from '@/lib/ghost';
+import Image from 'next/image';
+import { Calendar, Clock, ArrowLeft, User } from 'lucide-react';
+import Link from 'next/link';
+
+interface BlogPostPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export async function generateStaticParams() {
+  const slugs = await getAllPostSlugs();
+  return slugs.map((slug) =&gt; ({
+
+```
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="search" data-tool-name="grep">
+<details>
+<summary>Tool use: **grep** • Grep for "@/lib/posts|lib/posts" in "/home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd" • 1 match</summary>
+
+Output mode: files_with_matches
+
+
+| File |
+|------|
+| `/home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd/INTEGRATION_SUMMARY.md` |
+
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && ls -la app/api/ 2>/dev/null</summary>
+
+```bash
+cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && ls -la app/api/ 2>/dev/null
+```
+
+```
+total 16
+drwxrwxr-x 4 kaifu10 kaifu10 4096 Feb 10 04:17 .
+drwxrwxr-x 6 kaifu10 kaifu10 4096 Feb  9 05:24 ..
+drwxrwxr-x 4 kaifu10 kaifu10 4096 Feb  9 05:23 auth
+drwxrwxr-x 4 kaifu10 kaifu10 4096 Feb  9 05:25 comments
+
+```
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && git add -A && git status --short | head -10</summary>
+
+```bash
+cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && git add -A && git status --short | head -10
+```
+
+```
+D  app/api/posts/[id]/route.ts
+D  app/api/posts/route.ts
+ ? railway-ghost
+
+```
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && git commit -m "Fix: Remove old posts API routes that reference deleted lib/posts" 2>&1 | head -3</summary>
+
+```bash
+cd /home/kaifu10/.cursor/worktrees/PersonalPortfolio/mrd && git commit -m "Fix: Remove old posts API routes that reference deleted lib/posts" 2>&1 | head -3
+```
+
+```
+[detached HEAD fa6fc18b] Fix: Remove old posts API routes that reference deleted lib/posts
+ 2 files changed, 101 deletions(-)
+ delete mode 100644 app/api/posts/[id]/route.ts
+
+```
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/kaifu10/Desktop/PersonalProjects/PersonalPortfolio && git add -A && git commit -m "Fix: Remove old posts API routes - use Ghost CMS instead" 2>&1 | head -3</summary>
+
+```bash
+cd /home/kaifu10/Desktop/PersonalProjects/PersonalPortfolio && git add -A && git commit -m "Fix: Remove old posts API routes - use Ghost CMS instead" 2>&1 | head -3
+```
+</details>
+</tool-use>
 
 ---
 
