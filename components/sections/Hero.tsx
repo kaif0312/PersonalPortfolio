@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import Scene3D from '../3d/Scene3D';
-import Terminal from '../ui/Terminal';
 
 export default function Hero() {
   const socialLinks = [
@@ -18,26 +17,18 @@ export default function Hero() {
       <Scene3D />
       
       <div className="relative z-10 container mx-auto px-6 py-20">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Left Side - Text Content */}
+        <div className="flex flex-col items-center gap-12">
+          {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex-1 space-y-6"
+            className="flex-1 space-y-6 text-center"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="text-[#00ff88] font-mono text-sm">Hello, I'm</span>
-            </motion.div>
-            
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.2 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
             >
               <span className="gradient-text">Ibrahim Kaif</span>
@@ -46,7 +37,7 @@ export default function Hero() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.3 }}
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300"
             >
               AI Researcher & Engineer
@@ -55,11 +46,10 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.4 }}
               className="text-gray-400 text-base sm:text-lg max-w-xl"
             >
-              Building foundation models for single-cell genomics at POSTECH. 
-              Former IGVC 2023 Champion. Passionate about AI, computer vision, and pushing the boundaries of what's possible.
+              Building foundation models for single-cell genomics at POSTECH.
             </motion.p>
 
             {/* Social Links */}
@@ -67,7 +57,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex gap-3 sm:gap-4"
+              className="flex gap-3 sm:gap-4 justify-center"
             >
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
@@ -94,8 +84,8 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
+              transition={{ delay: 0.5 }}
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center"
             >
               <motion.a
                 href="#projects"
@@ -122,16 +112,6 @@ export default function Hero() {
                 Quick Links
               </motion.a>
             </motion.div>
-          </motion.div>
-
-          {/* Right Side - Terminal */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex-1 w-full lg:w-auto mt-8 lg:mt-0"
-          >
-            <Terminal />
           </motion.div>
         </div>
 
