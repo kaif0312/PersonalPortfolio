@@ -1,14 +1,8 @@
 import { notFound } from 'next/navigation';
-import { getPostBySlug, getAllPostSlugs } from '@/lib/posts';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { getPostBySlug, getAllPostSlugs } from '@/lib/ghost';
 import Image from 'next/image';
-import { Calendar, Clock, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, User } from 'lucide-react';
 import Link from 'next/link';
-import { serialize } from 'next-mdx-remote/serialize';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import Comments from '@/components/blog/Comments';
 
 interface BlogPostPageProps {
   params: {
@@ -17,43 +11,22 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPostSlugs();
-  return posts.map((slug) => ({
+  const slugs = await getAllPostSlugs();
+  return slugs.map((slug) => ({
     slug,
   }));
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getPostBySlug(params.slug);
+  const post = await getPostBySlug(params.slug);
 
   if (!post) {
     notFound();
   }
 
-  let mdxSource;
-  try {
-    mdxSource = await serialize(post.content, {
-      mdxOptions: {
-        rehypePlugins: [
-          rehypeHighlight,
-          rehypeSlug,
-          [
-            rehypeAutolinkHeadings,
-            {
-              behavior: 'wrap',
-            },
-          ],
-        ],
-      },
-    });
-  } catch (error) {
-    // If MDX parsing fails, treat as plain markdown
-    mdxSource = await serialize(post.content, {
-      mdxOptions: {
-        rehypePlugins: [rehypeHighlight, rehypeSlug],
-      },
-    });
-  }
+  // Calculate reading time if not provided
+  const readingTime = post.readingTime || Math.ceil(post.content.split(/\s+/).length / 200);
+  const readingTimeText = `${readingTime} min read`;
 
   return (
     <article className="min-h-screen py-20">
@@ -69,17 +42,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Header */}
         <header className="mb-12">
-          <div className="mb-4">
-            <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#00ff88]/20 text-[#00ff88]">
-              {post.category}
-            </span>
-          </div>
+          {post.tags && post.tags.length > 0 && (
+            <div className="mb-4 flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 rounded-full text-xs font-medium bg-[#00ff88]/20 text-[#00ff88]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
 
           <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
             {post.title}
           </h1>
 
-          <div className="flex items-center gap-6 text-gray-400 text-sm mb-8">
+          <div className="flex flex-wrap items-center gap-4 md:gap-6 text-gray-400 text-sm mb-8">
             <div className="flex items-center gap-2">
               <Calendar size={16} />
               <span>
@@ -92,10 +72,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
             <div className="flex items-center gap-2">
               <Clock size={16} />
-              <span>{post.readTime}</span>
+              <span>{readingTimeText}</span>
             </div>
             {post.author && (
-              <span>By {post.author}</span>
+              <div className="flex items-center gap-2">
+                <User size={16} />
+                <span>By {post.author.name}</span>
+              </div>
             )}
           </div>
 
@@ -112,48 +95,34 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
         </header>
 
-        {/* Content */}
-        <div className="prose prose-invert prose-lg max-w-none">
-          <MDXRemote
-            source={mdxSource}
-            components={{
-              img: (props: any) => (
-                <div className="my-8">
-                  <Image
-                    src={props.src}
-                    alt={props.alt || ''}
-                    width={800}
-                    height={600}
-                    className="rounded-lg w-full h-auto"
-                  />
-                </div>
-              ),
-              a: (props: any) => (
-                <a
-                  href={props.href}
-                  className="text-[#00ff88] hover:text-[#00d9ff] underline"
-                  target={props.href?.startsWith('http') ? '_blank' : undefined}
-                  rel={props.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-                >
-                  {props.children}
-                </a>
-              ),
-              code: (props: any) => (
-                <code className="bg-gray-800 px-2 py-1 rounded text-[#00ff88]">
-                  {props.children}
-                </code>
-              ),
-              pre: (props: any) => (
-                <pre className="bg-gray-900 p-4 rounded-lg overflow-x-auto my-4">
-                  {props.children}
-                </pre>
-              ),
-            }}
-          />
-        </div>
+        {/* Content - Ghost returns HTML */}
+        <div
+          className="prose prose-invert prose-lg max-w-none blog-content"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
 
-        {/* Comments Section */}
-        <Comments postSlug={params.slug} />
+        {/* Author Bio */}
+        {post.author && post.author.bio && (
+          <div className="mt-12 pt-8 border-t border-gray-800">
+            <div className="flex items-start gap-4">
+              {post.author.image && (
+                <Image
+                  src={post.author.image}
+                  alt={post.author.name}
+                  width={64}
+                  height={64}
+                  className="rounded-full"
+                />
+              )}
+              <div>
+                <h3 className="text-xl font-semibold mb-2">{post.author.name}</h3>
+                {post.author.bio && (
+                  <p className="text-gray-400">{post.author.bio}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </article>
   );
